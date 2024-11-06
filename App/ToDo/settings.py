@@ -1,3 +1,8 @@
+
+import pymysql
+
+pymysql.install_as_MySQLdb()
+
 """
 Django settings for ToDo project.
 
@@ -74,15 +79,16 @@ WSGI_APPLICATION = 'ToDo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'todoData',
-        'USER': 'root',
+        'NAME' : 'todoData',
+        'USER' : 'root',
         'PASSWORD': '@Morelos0103',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+        'HOST' : 'localhost',
+        'PORT' : '3306',
+            }
 }
 
 
