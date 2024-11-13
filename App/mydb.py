@@ -10,7 +10,7 @@ dataBase = mysql.connector.connect(
 cursorObject = dataBase.cursor() 
 
 #create data base
-cursorObject.execute("CREATE DATABASE todoData")
+cursorObject.execute("CREATE DATABASE IF NOT EXISTS todoData")
 
 #Message in console to see if it worked 
 print("Hello data base todoData")

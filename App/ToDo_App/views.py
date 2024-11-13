@@ -44,7 +44,7 @@ def login_user(request):
             if user is not None:
                 login(request, user)
                 # Redirect to "My To-Do Lists" after login
-                return redirect('my_to_do_lists')
+                return redirect('tasks')
             else:
                 messages.error(request, "Invalid credentials.")
         else:
