@@ -93,3 +93,16 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+.side-image {
+    position: absolute;
+    left: 0;                   /* Position the image on the left side */
+    top: 50%;                  /* Center vertically */
+    transform: translateY(-50%);
+    height: 300px;             /* Adjust the height as needed */
+    z-index: 1;               /* Place behind the content if needed */
+    opacity: 0.8;
+                 
+}
+
+
