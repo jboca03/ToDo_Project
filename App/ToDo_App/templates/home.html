@@ -1,10 +1,37 @@
 {% extends "base.html" %}
-
-{% block title %} Home Page {% endblock %}
+{% load static %}
+{% block title %}Home Page{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the ToDo App</h1>
-    <p>This is the home page of your ToDo application.</p>
-    <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
-{% endblock %}
+<div class="homepage">
+    <img src="{% static 'ToDo_App/images/beezy.png' %}" alt="Side Image" class="side-image">
+    <header>
+        <!-- Honeycomb-style title -->
+        <div class="homepage-title">
+            <div class="title-honeycomb">
+                <div class="honeycomb-cell">W</div>
+                <div class="honeycomb-cell">O</div>
+                <div class="honeycomb-cell">R</div>
+                <div class="honeycomb-cell">K</div>
+                <div class="honeycomb-cell">E</div>
+                <div class="honeycomb-cell">R</div>
+                <div class="honeycomb-cell">B</div>
+                <div class="honeycomb-cell">E</div>
+                <div class="honeycomb-cell">E</div>
+            </div>
+        </div>
+        <p>Bee Productive!</p>
+    </header>
 
+    <!-- Honeycomb buttons for navigation links -->
+    <div class="homepage">
+        <div class="button-container">
+            <a href="/login" class="button">Log in</a>
+            <a href="/register" class="button">Register</a>
+            <a href="/about" class="button">About</a>
+            <a href="/contact" class="button">Contact</a>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

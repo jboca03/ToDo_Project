@@ -1,0 +1,108 @@
+/* Honeycomb-style title section */
+.homepage-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+/* Title honeycomb grid setup */
+.title-honeycomb {
+    display: grid;
+    grid-template-columns: repeat(9, 100px); /* Adjust based on letter count */
+    grid-gap: 5px;
+    justify-content: center;
+}
+
+/* Style for each cell in the title honeycomb */
+.title-honeycomb .honeycomb-cell {
+    width: 100px;
+    height: 86px;
+    background-color: #895129;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.5em;
+    transform: none; /* No rotation */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the welcome message */
+.homepage p {
+    font-family: 'D3 Honeycombism Bold',sans-serif; /* Same font as the title */
+    font-size: 2em; /* Slightly larger than the title */
+    text-align: center;
+    color: white;
+    margin-top: 30px; /* Space below the honeycomb title */
+}
+
+/* Container for the diagonal buttons */
+.homepage .button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px; /* Space between buttons */
+    transform: rotate(45deg); /* Rotate the entire button container diagonally */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 50px;
+}
+
+/* Style for the buttons (honeycomb shape) */
+.homepage .button-container .button {
+    width: 100px; /* Match width with honeycomb cells */
+    height: 86px; /* Match height with honeycomb cells */
+    background-color: #895129;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none; /* Remove underline if it's a link */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Honeycomb shape */
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for buttons */
+.homepage .button-container .button:hover {
+    background-color: #b96f34; /* Lighter shade of brown for hover */
+}
+
+/* Ensure buttons stay aligned diagonally */
+.homepage .button-container .button:nth-child(odd) {
+    transform: rotate(-45deg); /* Counter rotate odd buttons */
+}
+
+/* Remove default margin and padding from all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: #DBA400; /* Apply background color to fill the viewport */
+    margin: 0;
+    padding: 0;
+}
+
+.side-image {
+    position: absolute;
+    left: 0;                   /* Position the image on the left side */
+    top: 50%;                  /* Center vertically */
+    transform: translateY(-50%);
+    height: 300px;             /* Adjust the height as needed */
+    z-index: 1;               /* Place behind the content if needed */
+    opacity: 0.8;
+                 
+}
+
+
