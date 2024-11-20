@@ -6,14 +6,15 @@ body {
 /* Side image styling */
 .side-image {
     position: absolute;
-    right: 40px; /* Move the image a little more to the left by adjusting the right value */
-    top: 55%; /* Center vertically */
+    right: 40px; /* Keep the image near the right side */
+    top: 60%; /* Adjust vertically to its original position */
     transform: translateY(-50%); /* Keep it centered vertically */
-    width: 605px; /* Set the width */
-    height: 660px; /* Set the height */
+    width: 590px; /* Set the width */
+    height: 620px; /* Set the height */
     flex-shrink: 0; /* Prevent the image from shrinking */
     z-index: 1; /* Keep it behind the content if needed */
     opacity: 0.8; /* Keep some transparency if desired */
+    animation: float 3s ease-in-out infinite; /* Add the hover animation */
 }
 
 
@@ -137,3 +138,14 @@ body {
     text-align: center; /* Ensure text is centered */
 }
 
+@keyframes float {
+    0% {
+        transform: translateY(-50%); /* Starting position */
+    }
+    50% {
+        transform: translateY(-60%); /* Move up */
+    }
+    100% {
+        transform: translateY(-50%); /* Return to starting position */
+    }
+}
