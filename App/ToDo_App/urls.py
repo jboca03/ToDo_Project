@@ -1,16 +1,17 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
-from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, TaskDelete
-from django.contrib.auth.views import LoginView, LogoutView
+from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, TaskDelete, CustomLoginView, RegisterPage
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path("", views.home, name="home"),
 
     # Login and registration URLs
     # Custom login view for additional control
-    path('login/', views.login_user, name='login'),
-    path('register/', views.register, name='register'),  # Registration view
-    path('logout/', LogoutView.as_view(next_page='home'),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    
+    path('register/', RegisterPage.as_view(), name='register'),  # Registration view
+    path('logout/', LogoutView.as_view(next_page='login'),
          name='logout'),  # Logout view with redirect to home
 
     # Redirected after login
