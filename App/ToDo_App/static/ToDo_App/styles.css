@@ -7,10 +7,10 @@ body {
 .side-image {
     position: absolute;
     right: 40px; /* Move the image a little more to the left by adjusting the right value */
-    top: 50%; /* Center vertically */
+    top: 55%; /* Center vertically */
     transform: translateY(-50%); /* Keep it centered vertically */
-    width: 658px; /* Set the width */
-    height: 705px; /* Set the height */
+    width: 605px; /* Set the width */
+    height: 660px; /* Set the height */
     flex-shrink: 0; /* Prevent the image from shrinking */
     z-index: 1; /* Keep it behind the content if needed */
     opacity: 0.8; /* Keep some transparency if desired */
@@ -80,7 +80,7 @@ body {
     font-weight: 700;
     line-height: 84.943%; /* 159.693px */
     position: absolute;
-    top: 40%; /* Adjust vertical positioning */
+    top: 45%; /* Adjust vertical positioning */
     left: 10%; /* Move the text to the left side */
     transform: translateY(-50%); /* Center it vertically */
     text-align: left; /* Align the text to the left */
@@ -104,7 +104,7 @@ body {
     font-weight: 700;
     line-height: normal;
     position: absolute;
-    top: 60%; /* Adjust to place it under "Bee" */
+    top: 65%; /* Adjust to place it under "Bee" */
     left: 11%; /* Move it to the left */
     text-align: left; /* Align the text to the left */
 }
@@ -121,7 +121,7 @@ body {
     border-radius: 109px; /* Circular shape */
     background: var(--Honey, #F5BC5A); /* Honey color */
     position: absolute;
-    top: 70%; /* Adjust to position the button under the "Bee Organized" text */
+    top: 75%; /* Adjust to position the button under the "Bee Organized" text */
     left: 17%; /* Center horizontally */
     transform: translateX(-50%); /* Centering it exactly */
     text-decoration: none; /* Remove default underline from the link */
