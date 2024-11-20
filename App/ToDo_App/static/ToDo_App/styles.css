@@ -1,108 +1,139 @@
-/* Honeycomb-style title section */
-.homepage-title {
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-}
-
-/* Title honeycomb grid setup */
-.title-honeycomb {
-    display: grid;
-    grid-template-columns: repeat(9, 100px); /* Adjust based on letter count */
-    grid-gap: 5px;
-    justify-content: center;
-}
-
-/* Style for each cell in the title honeycomb */
-.title-honeycomb .honeycomb-cell {
-    width: 100px;
-    height: 86px;
-    background-color: #895129;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    color: white;
-    font-size: 1.5em;
-    transform: none; /* No rotation */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Style for the welcome message */
-.homepage p {
-    font-family: 'D3 Honeycombism Bold',sans-serif; /* Same font as the title */
-    font-size: 2em; /* Slightly larger than the title */
-    text-align: center;
-    color: white;
-    margin-top: 30px; /* Space below the honeycomb title */
-}
-
-/* Container for the diagonal buttons */
-.homepage .button-container {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 20px; /* Space between buttons */
-    transform: rotate(45deg); /* Rotate the entire button container diagonally */
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding-top: 50px;
-}
-
-/* Style for the buttons (honeycomb shape) */
-.homepage .button-container .button {
-    width: 100px; /* Match width with honeycomb cells */
-    height: 86px; /* Match height with honeycomb cells */
-    background-color: #895129;
-    color: white;
-    border: none;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    text-decoration: none; /* Remove underline if it's a link */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Honeycomb shape */
-    transition: background-color 0.3s;
-}
-
-/* Hover effect for buttons */
-.homepage .button-container .button:hover {
-    background-color: #b96f34; /* Lighter shade of brown for hover */
-}
-
-/* Ensure buttons stay aligned diagonally */
-.homepage .button-container .button:nth-child(odd) {
-    transform: rotate(-45deg); /* Counter rotate odd buttons */
-}
-
-/* Remove default margin and padding from all elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    background-color: #DBA400; /* Apply background color to fill the viewport */
-    margin: 0;
-    padding: 0;
-}
-
+body {
+    background-image: url('/static/ToDo_App/images/Home_Background.png');
+    background-size: cover;
+  }
+  
+/* Side image styling */
 .side-image {
     position: absolute;
-    left: 0;                   /* Position the image on the left side */
-    top: 50%;                  /* Center vertically */
-    transform: translateY(-50%);
-    height: 300px;             /* Adjust the height as needed */
-    z-index: 1;               /* Place behind the content if needed */
-    opacity: 0.8;
-                 
+    right: 40px; /* Move the image a little more to the left by adjusting the right value */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Keep it centered vertically */
+    width: 658px; /* Set the width */
+    height: 705px; /* Set the height */
+    flex-shrink: 0; /* Prevent the image from shrinking */
+    z-index: 1; /* Keep it behind the content if needed */
+    opacity: 0.8; /* Keep some transparency if desired */
 }
 
+
+
+/* Navbar: Full Width, Brown Background, and Fixed at the Top */
+.bg-brown {
+    background-color: #33271D !important;
+    width: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Navbar text: Font family, size, and color */
+.navbar-nav .nav-link {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: white !important; /* Ensure text is white */
+}
+
+/* Home Link: Honey color */
+.navbar-nav .home-link {
+    color: #f0a500 !important; /* Honey color */
+}
+
+/* New Welcome Text Styling */
+.welcome-text {
+    color: var(--Dark-Brown, #33271D); /* Dark brown color */
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    top: 20%; /* Vertically center the text */
+    left: 10%; /* Move the text to the left side */
+    text-align: left; /* Align the text to the left */
+}
+
+/* Set the body to account for the fixed navbar height */
+.homepage {
+    margin-top: 80px; /* Adjust based on navbar height */
+}
+
+/* Set font for the navbar brand */
+.navbar-brand {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: white !important; /* Ensure navbar brand text is white */
+}
+
+/* Make sure the navbar toggler icon is white */
+.navbar-toggler-icon {
+    background-color: white !important;
+}
+
+/* Worker Bee Text Styling */
+.worker-bee-text {
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 188px;
+    font-weight: 700;
+    line-height: 84.943%; /* 159.693px */
+    position: absolute;
+    top: 40%; /* Adjust vertical positioning */
+    left: 10%; /* Move the text to the left side */
+    transform: translateY(-50%); /* Center it vertically */
+    text-align: left; /* Align the text to the left */
+}
+
+/* Worker Text Styling (Honey Color) */
+.worker-text {
+    color: var(--Honey, #F5BC5A); /* Honey color */
+}
+
+/* Bee Text Styling (Dark Brown) */
+.bee-text {
+    color: var(--Dark-Brown, #33271D); /* Dark brown color */
+}
+
+/* Bee Organized Text Styling */
+.bee-organized-text {
+    color: var(--Gray, #808080); /* Gray color */
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+    position: absolute;
+    top: 60%; /* Adjust to place it under "Bee" */
+    left: 11%; /* Move it to the left */
+    text-align: left; /* Align the text to the left */
+}
+
+.register-button {
+    display: flex;
+    width: 234px;
+    height: 83px;
+    padding: 21px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 109px; /* Circular shape */
+    background: var(--Honey, #F5BC5A); /* Honey color */
+    position: absolute;
+    top: 70%; /* Adjust to position the button under the "Bee Organized" text */
+    left: 17%; /* Center horizontally */
+    transform: translateX(-50%); /* Centering it exactly */
+    text-decoration: none; /* Remove default underline from the link */
+}
+
+/* Text inside the Register Button */
+.register-text {
+    color: white; /* Text color */
+    font-family: 'Inria Sans', sans-serif; /* Matching the font */
+    font-size: 32px; /* Font size */
+    font-weight: 700; /* Bold text */
+    line-height: normal;
+    text-align: center; /* Ensure text is centered */
+}
 

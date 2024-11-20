@@ -3,35 +3,59 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
+<!-- Navbar Code -->
+<nav class="navbar navbar-expand-lg navbar-light bg-brown fixed-top">
+  <a class="navbar-brand" href="#">Worker Bee</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link home-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Homepage Content -->
 <div class="homepage">
-    <img src="{% static 'ToDo_App/images/beezy.png' %}" alt="Side Image" class="side-image">
     <header>
-        <!-- Honeycomb-style title -->
-        <div class="homepage-title">
-            <div class="title-honeycomb">
-                <div class="honeycomb-cell">W</div>
-                <div class="honeycomb-cell">O</div>
-                <div class="honeycomb-cell">R</div>
-                <div class="honeycomb-cell">K</div>
-                <div class="honeycomb-cell">E</div>
-                <div class="honeycomb-cell">R</div>
-                <div class="honeycomb-cell">B</div>
-                <div class="honeycomb-cell">E</div>
-                <div class="honeycomb-cell">E</div>
-            </div>
-        </div>
-        <p>Bee Productive!</p>
+        <!-- New "Welcome to" Text -->
+        <p class="welcome-text">Welcome to</p>
+
+       <!-- "Worker Bee" Text Below -->
+       <div class="worker-bee-text">
+        <div class="worker-text">Worker</div>
+        <div class="bee-text">Bee</div>
+    </div>
+
+    <!-- "Bee Organized" Text Below -->
+<div class="bee-organized-text">
+    Bee Organized!
+</div>
+<!-- Register Button -->
+<!-- Register Button -->
+<a href="/register" class="register-button">
+    <span class="register-text">Register</span>
+</a>
+
+
+
     </header>
 
-    <!-- Honeycomb buttons for navigation links -->
-    <div class="homepage">
-        <div class="button-container">
-            <a href="/login" class="button">Log in</a>
-            <a href="/register" class="button">Register</a>
-            <a href="/about" class="button">About</a>
-            <a href="/contact" class="button">Contact</a>
-        </div>
-    </div>
-    
+    <!-- Bee Image: Move it to the far right and make it bigger -->
+    <img src="{% static 'ToDo_App/images/workerbee.png' %}" alt="Bee Image" class="side-image">
 </div>
 {% endblock %}
+
