@@ -66,26 +66,70 @@ def register(request):
 # User login view
 
 
+
+
+
+
+
+
+
+
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
+
 def login_user(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
+            # Get the cleaned data
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+
+            # Authenticate the user
+            user = authenticate(request, username=username, password=password)
+
             if user is not None:
+                # Log the user in
                 login(request, user)
-                # Redirect to "My To-Do Lists" after login
-                return redirect('tasks')
+                # Redirect to 'tasks' page after login
+                return redirect('tasks')  # assuming 'tasks' is the name of your tasks page URL
             else:
-                messages.error(request, "Invalid credentials.")
+                messages.error(request, "Invalid credentials.")  # If authentication fails
         else:
-            messages.error(request, "Invalid credentials.")
+            messages.error(request, "Invalid credentials.")  # If the form is invalid
     else:
-        form = AuthenticationForm()
+        form = AuthenticationForm()  # Display an empty form if GET request
+
     return render(request, 'login.html', {'form': form})
 
 # Logout view
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def logout_user(request):

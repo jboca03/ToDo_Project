@@ -1,16 +1,221 @@
-{% extends 'ToDo_App/main.html'%}
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Register{% endblock %}
+
 {% block content %}
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Inria Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #F8F8F8;
+    }
 
-<h1>Register</h1>
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
 
-<form method="POST">
-    {% csrf_token %} 
-    {{form.as_p}}
-    <input type="submit" value="Register" >
-</form>
+    .card {
+        background-color: #FFF;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
 
-<p>
-    Already have an account? <a href="{% url 'login' %}">Login</a>
-</p>
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 
-{% endblock content %}
+    .welcome-text {
+        margin: 0;
+        font-size: 14px;
+        color: #808080;
+    }
+
+    h1 {
+        margin: 10px 0 0;
+        font-size: 28px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .signin-prompt p {
+        margin: 0;
+        font-size: 14px;
+        color: #808080;
+    }
+
+    .signin-prompt a {
+        font-size: 14px;
+        color: #F5BC5A;
+        text-decoration: none;
+    }
+
+    /* Form Styling */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        color: #33271D;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .input-field:focus {
+        border-color: #F5BC5A;
+        box-shadow: 0 0 3px rgba(245, 188, 90, 0.5);
+    }
+
+    .password-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        color: #808080;
+    }
+
+    /* Button Styling */
+    .button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        color: #FFF;
+        background-color: #F5BC5A;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        margin-top: 10px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .button:hover {
+        background-color: #dca744;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #33271D;
+        padding: 15px 50px;
+        color: #FFF;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .logo-icon {
+        height: 36px;
+        width: 40px;
+    }
+
+    .nav-links a {
+        color: #FFF;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 14px;
+    }
+
+    .nav-links a.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .nav-links a:hover {
+        color: #F5BC5A;
+    }
+</style>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" viewBox="0 0 36 40" fill="none">
+            <path d="M18 0L35.3205 10V30L18 40L0.679491 30V10L18 0Z" fill="#F5BC5A"/>
+        </svg>
+        <span>Worker Bee</span>
+    </div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/register" class="active">Register</a>
+    </div>
+</nav>
+
+<!-- Main Register Section -->
+<main class="main-container">
+    <div class="card">
+        <!-- Header Section -->
+        <div class="header">
+            <div>
+                <p class="welcome-text">Welcome to Worker Bee</p>
+                <h1>Sign up</h1>
+            </div>
+            <div class="signin-prompt">
+                <p>Have an account?</p>
+                <a href="/login">Sign in</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Enter your username or email address</label>
+                {{ form.username|add_class:"input-field" }}
+            </div>
+            <div class="form-group">
+                <label for="password1">Enter your Password</label>
+                <div class="password-container">
+                    {{ form.password1|add_class:"input-field" }}
+                    <span class="toggle-password">👁️</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirm your Password</label>
+                <div class="password-container">
+                    {{ form.password2|add_class:"input-field" }}
+                    <span class="toggle-password">👁️</span>
+                </div>
+            </div>
+            <!-- Sign in link instead of button -->
+            <a href="/login" class="button">Sign In</a>
+        </form>
+    </div>
+</main>
+
+{% endblock %}

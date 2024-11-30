@@ -1,16 +1,238 @@
-{% extends 'ToDo_App/main.html'%}
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Login{% endblock %}
+
 {% block content %}
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Inria Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #F8F8F8;
+    }
 
-<h1>Login</h1>
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
 
-<form method="POST">
-    {% csrf_token %} 
-    {{form.as_p}}
-    <input type="submit" value="Login" >
-</form>
+    .card {
+        background-color: #FFF;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
 
-<p>
-    Don't have an account? <a href="{% url 'register' %}">Register</a>
-</p>
+    .welcome-text {
+        margin: 0;
+        font-size: 14px;
+        color: #808080;
+    }
 
-{% endblock content %}
+    h1 {
+        margin: 10px 0 0;
+        font-size: 28px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .signup-prompt p {
+        margin: 0;
+        font-size: 14 px;
+        color: #808080;
+    }
+
+    .signup-prompt a {
+        font-size: 14px;
+        color: #F5BC5A;
+        text-decoration: none;
+    }
+
+    /* Form Styling */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        color: #33271D;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .input-field:focus {
+        border-color: #F5BC5A;
+        box-shadow: 0 0 3px rgba(245, 188, 90, 0.5);
+    }
+
+    .password-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        color: #808080;
+    }
+
+    .forgot-password {
+        display: block;
+        text-align: right;
+        margin-top: 5px;
+        font-size: 12px;
+        color: #F5BC5A;
+        text-decoration: none;
+    }
+
+    /* Button Styling */
+    .button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        color: #FFF;
+        background-color: #F5BC5A;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        margin-top: 10px;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none; /* Make the link behave like a button */
+    }
+
+    .button:hover {
+        background-color: #dca744;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #33271D;
+        padding: 15px 50px;
+        color: #FFF;
+    }
+
+    .navbar .navbar-brand {
+        display: flex;
+        align-items: center;
+        color: #FFF;
+        font-size: 24px;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .navbar-brand svg {
+        height: 36px;
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    .navbar .nav-links a {
+        color: #FFF;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 14px;
+    }
+
+    .navbar .nav-links a.active {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .navbar .nav-links a:hover {
+        color: #F5BC5A;
+    }
+</style>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-brown fixed-top">
+  <a class="navbar-brand" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 40" fill="none">
+        <path d="M18 0L35.3205 10V30L18 40L0.679491 30V10L18 0Z" fill="#F5BC5A"/>
+    </svg>
+    Worker Bee
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Login Section -->
+<main class="main-container">
+    <div class="card">
+        <!-- Header Section -->
+        <div class="header">
+            <div>
+                <h1>Sign in</h1>
+            </div>
+            <div class="signup-prompt">
+                <p>No account?</p>
+                <a href="{% url 'register' %}">Sign up</a>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="username">Enter your username or email address</label>
+                {{ form.username|add_class:"input-field" }}
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Enter your password</label>
+                <div class="password-container">
+                    {{ form.password|add_class:"input-field" }}
+                    <span class="toggle-password"></span>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <!-- Submit Link Styled as a Button -->
+            <a href="{% url 'tasks' %}" class="button">Sign In</a>
+        </form>
+    </div>
+</main>
+
+{% endblock %}
