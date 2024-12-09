@@ -1,2 +1,49 @@
-<h1>About the ToDo App</h1>
-<p>This app helps users manage their tasks effectively. It was designed with productivity in mind.</p>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<!-- Navbar Code -->
+<nav class="navbar navbar-expand-lg navbar-light bg-brown fixed-top">
+  <a class="navbar-brand" href="#">Worker Bee</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link home-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- About Page Content -->
+<div class="about-page">
+  <div class="about-box">
+    <header>
+      <h1 class="about-title">About Worker Bee</h1>
+      <p class="about-subtitle">Your Productivity Partner</p>
+    </header>
+
+    <section class="about-content">
+      <p>
+        Worker Bee is designed to help you organize your tasks and manage your time effectively. Whether you're planning your day, keeping track of deadlines, or prioritizing your goals, Worker Bee is here to assist you in staying on top of your productivity.
+      </p>
+      <p>
+        With a user-friendly interface and an organized approach, Worker Bee ensures that your to-do list works for you—not the other way around.
+      </p>
+    </section>
+  </div>
+</div>
+{% endblock %}

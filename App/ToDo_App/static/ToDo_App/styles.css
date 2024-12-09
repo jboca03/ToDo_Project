@@ -149,3 +149,60 @@ body {
         transform: translateY(-50%); /* Return to starting position */
     }
 }
+
+/* White Box Styling for the About Page */
+.about-box {
+    background-color: white; /* White background */
+    border-radius: 15px; /* Rounded edges */
+    padding: 30px; /* Space inside the box */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 50px auto; /* Center the box on the page */
+    max-width: 800px; /* Set a maximum width */
+    text-align: center; /* Center-align the text */
+    backdrop-filter: blur(5px); /* Slight blur for better contrast */
+}
+
+/* About Page Styling */
+.about-page {
+    margin-top: 100px; /* Adjust for navbar */
+    padding: 20px;
+    font-family: 'Inria Sans', sans-serif;
+    text-align: center;
+    background-color: rgba(255, 249, 229, 0.85); /* Semi-transparent honey tone */
+    border-radius: 10px;
+    margin: 50px auto;
+    max-width: 800px;
+    backdrop-filter: blur(5px); /* Slight blur for better text visibility */
+}
+
+/* Background Image for the Page */
+body {
+    background-image: url('/static/ToDo_App/images/Home_Background.png');
+    background-size: cover;
+    background-attachment: fixed; /* Keeps the background static during scroll */
+    background-position: center;
+}
+
+/* Title Styling */
+.about-title {
+    color: var(--Honey, #F5BC5A);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Subtitle Styling */
+.about-subtitle {
+    color: var(--Dark-Brown, #33271D);
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Content Text Styling */
+.about-content p {
+    color: var(--Dark-Brown, #33271D);
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}

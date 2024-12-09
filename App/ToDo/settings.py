@@ -1,8 +1,4 @@
 
-import pymysql
-
-pymysql.install_as_MySQLdb()
-
 """
 Django settings for ToDo project.
 
@@ -34,7 +30,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

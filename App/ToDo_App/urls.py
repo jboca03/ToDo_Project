@@ -11,9 +11,8 @@ urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     
     path('register/', RegisterPage.as_view(), name='register'),  # Registration view
-    path('logout/', LogoutView.as_view(next_page='login'),
-         name='logout'),  # Logout view with redirect to home
-
+   #Logout Page with redirect back to Home page
+    path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
     # Redirected after login
     path('my-to-do-lists/', views.my_to_do_lists,
          name='my_to_do_lists'),  # My To-Do Lists page

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse # type: ignore
 from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm # type: ignore
 from django.contrib.auth import authenticate, login, logout
 
 from .models import Task
@@ -107,29 +107,6 @@ def login_user(request):
     return render(request, 'login.html', {'form': form})
 
 # Logout view
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def logout_user(request):
