@@ -8,6 +8,7 @@ env/
 .venv/
 virtenv/
 myenv/
+venv_todo
 
 # Django migration files
 */migrations/
