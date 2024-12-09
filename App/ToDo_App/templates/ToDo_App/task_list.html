@@ -15,16 +15,14 @@
   {% endif %}
 </div>
 
-
-
-
-
 <div id="search-add-wrapper">
   <form method="GET" style="margin-top: 20px; display: flex;">
     <input type="text" name="search-area" value="{{search_input}}" />
     <input class = "button" type="submit" value="Search" />
   </form>
+  {% if user.is_admin %}
   <a id="add-link" href="{% url 'task-create' %}">&#x2b</a>
+  {%endif%}
 </div>
 
 <div class="task-items-wrapper">
@@ -42,7 +40,9 @@
         <div class="task-incomplete-icon"></div>
         <a href="{% url 'task-update' task.id %}">{{task}}</a>
       </div>
+      {% if user.is_admin %}
       <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
+      {%endif%}
       {% endif %}
     </div>
 

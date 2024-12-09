@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "ToDo_App.apps.TodoAppConfig",
-    "widget_tweaks",
 ]
 
 MIDDLEWARE = [
@@ -79,12 +78,12 @@ WSGI_APPLICATION = 'ToDo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'todoData',
-        'USER' : 'root',
+        'NAME': 'todoData',
+        'USER': 'root',
         'PASSWORD': '@Morelos0103',
-        'HOST' : 'localhost',
-        'PORT' : '3306',
-            }
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
 }
 
 
@@ -130,3 +129,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+AUTH_USER_MODEL = 'ToDo_App.User'
