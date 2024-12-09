@@ -7,6 +7,11 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.views import LoginView
+from django.views.generic.edit import FormView
+from django.contrib.auth import login
+from .forms import RegisterForm
+from .models import User
 
 from .models import Task
 
@@ -50,16 +55,29 @@ def home(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            # Set user type programmatically
+            if request.POST.get('is_admin'):  # Check if the user is an admin
+                user.is_admin = True
+                user.is_user = False
+            else:
+                user.is_user = True
+                user.is_admin = False
+            user.save()
+            
+            # Log the user in after successful registration
+            login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect('login')
+            return redirect('tasks')  # Redirect to task list or another page
         else:
             messages.error(request, "Registration failed. Please try again.")
     else:
-        form = UserCreationForm()
+        form = RegisterForm()
+
     return render(request, 'register.html', {'form': form})
+
 
 # User login view
 
@@ -135,7 +153,7 @@ class TaskCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
-    
+
 
 #This Page allows for task updates
 class TaskUpdate(LoginRequiredMixin, UpdateView):

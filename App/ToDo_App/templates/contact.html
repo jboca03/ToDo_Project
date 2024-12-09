@@ -1,2 +1,59 @@
-<h1>Contact the Developer</h1>
-<p>For any inquiries or support, please reach out to: <a href="mailto:glennquezada14@gmail.com">glennquezada14@gmail.com</a></p>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<!-- Navbar Code -->
+<nav class="navbar navbar-expand-lg navbar-light bg-brown fixed-top">
+  <a class="navbar-brand" href="#">Worker Bee</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link home-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/contact">Contact <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Contact Page Content -->
+<div class="contact-page">
+  <div class="contact-box">
+    <header>
+      <h1 class="contact-title">Contact Us</h1>
+      <p class="contact-subtitle">We'd love to hear from you!</p>
+    </header>
+
+    <section class="contact-content">
+      <p>
+        If you have any questions, feedback, or just want to say hi, feel free to reach out! Fill out the form below or email us directly at <a href="mailto:support@workerbee.com">support@workerbee.com</a>.
+      </p>
+
+      <form class="contact-form">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+        <button type="submit" class="submit-button">Send Message</button>
+      </form>
+    </section>
+  </div>
+</div>
+{% endblock %}

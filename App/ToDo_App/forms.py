@@ -4,44 +4,24 @@ from .models import User
 
 class LoginForm(forms.Form):
     username = forms.CharField(
-        widget = forms.TextInput(
+        widget=forms.TextInput(
             attrs={
                 "class": "form-control"
             }
         )
     )
     password = forms.CharField(
-        widget = forms.PasswordInput(
+        widget=forms.PasswordInput(
             attrs={
                 "class": "form-control"
             }
         )
     )
-    
+
 class RegisterForm(UserCreationForm):
-    username = forms.CharField(
-        widget = forms.TextInput(
-            attrs={
-                "class": "form-control"
-            }
-        )
-    )
-    password1 = forms.CharField(
-        widget = forms.PasswordInput(
-            attrs={
-                "class": "form-control"
-            }
-        )
-    )
-    password2 = forms.CharField(
-        widget = forms.PasswordInput(
-            attrs={
-                "class": "form-control"
-            }
-        )
-    )
-    email = forms.CharField(
-        widget = forms.TextInput(
+    # Removing is_admin and is_user as they can be set programmatically
+    email = forms.EmailField(  # EmailField for better validation
+        widget=forms.TextInput(
             attrs={
                 "class": "form-control"
             }
@@ -50,4 +30,4 @@ class RegisterForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', 'is_admin', 'is_user')
+        fields = ('username', 'email', 'password1', 'password2')  # Removed is_admin and is_user

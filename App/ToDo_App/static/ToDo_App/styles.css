@@ -206,3 +206,119 @@ body {
     line-height: 1.6;
     margin-bottom: 20px;
 }
+
+/* Specific honeycomb background for tasklist page */
+.tasklist-background {
+    background-image: url('/static/ToDo_App/images/Home_Background.png');
+    background-size: cover;
+    background-attachment: fixed; /* Keeps the background static during scroll */
+    background-position: center;
+}
+
+
+body {
+    background-color: white;
+}
+
+/* Navbar styling (same as About page) */
+.bg-brown {
+    background-color: #33271D !important;
+    width: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: white !important;
+}
+
+.navbar-nav .home-link {
+    color: #f0a500 !important; /* Honey color */
+}
+
+.navbar-brand {
+    font-family: 'Inria Sans', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+    color: white !important;
+}
+
+/* Contact Page Styling */
+.contact-page {
+    margin-top: 100px; /* Adjust for navbar */
+    padding: 20px;
+    font-family: 'Inria Sans', sans-serif;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+/* White Box Styling */
+.contact-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px; /* Reduced padding */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 40px auto; /* Slightly less margin */
+    max-width: 600px; /* Reduced width */
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Title Styling */
+.contact-title {
+    color: var(--Honey, #F5BC5A);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Subtitle Styling */
+.contact-subtitle {
+    color: var(--Dark-Brown, #33271D);
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+.contact-form label {
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--Dark-Brown, #33271D);
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.contact-form button {
+    background-color: var(--Honey, #F5BC5A);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #e09c41; /* Slightly darker Honey color */
+}
+
